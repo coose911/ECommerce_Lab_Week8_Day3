@@ -13,7 +13,16 @@ function App() {
   let items = [
     { item: "Reeses", price: 5},
     { item: "Nerds", price: 3}, 
-    { item: "Skittles", price: 4}
+    { item: "Skittles", price: 4},
+    { item: "Galaxy", price: 4},
+    { item: "Skittles Sour", price: 4},
+    { item: "Ferrero Rochet", price: 10},
+    { item: "Truffles", price: 15},
+    { item: "Wrigleys Extra", price: 1},
+    { item: "Lucozade", price: 2},
+    { item: "Coke", price: 2},
+    { item: "Twix", price: 2},
+    { item: "Kinder Bueno", price: 3}
 ]
 
 const [listItems, setListItems] = useState(items)
@@ -26,6 +35,7 @@ const addToBasket = (itemObject) => {
 }
 console.log(basket)
   return (
+    <>
     <Router>
         <NavBar></NavBar>
         <Routes>
@@ -35,6 +45,7 @@ console.log(basket)
             <Route exact path="/basket" element={ <Basket basket={basket}/>} />
         </Routes>
     </Router>
+    </>
   );
 }
 
