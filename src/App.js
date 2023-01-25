@@ -1,24 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
+import Home from './containers/Home';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
+import Items from "./components/Items";
+import Basket from "./components/Basket";
+import { useState } from 'react';
+
+
 
 function App() {
+
+  let items = [
+    { item: "Reeses", price: 5},
+    { item: "Nerds", price: 3}, 
+    { item: "Skittles", price: 4}
+]
+
+const [listItems, setListItems] = useState(items)
+const [basket, setBasket] = useState([])
+
+
+const addToBasket = (itemObject) => {
+    const addedToBasket = [...basket, itemObject]
+    setBasket(addedToBasket)
+}
+console.log(basket)
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <NavBar></NavBar>
+        <Routes>
+            <Route exact path="/" element={ <Home />} />
+            <Route exact path="/navbar" element={ <NavBar />} />
+            <Route exact path="/items" element={ <Items items={items} addToBasket={addToBasket}/>} />
+            <Route exact path="/basket" element={ <Basket basket={basket}/>} />
+        </Routes>
+    </Router>
   );
 }
 
