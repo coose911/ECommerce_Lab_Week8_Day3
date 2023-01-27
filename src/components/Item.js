@@ -27,7 +27,7 @@ const Item = ({item, addToBasket}) => {
         <ItemContainer>
             <li>
                 <p>{item.item}</p>
-                <p>£ {item.price}.00</p>
+                <p>£ {item.price}</p>
                 <button onClick={handleItemClick}>Add To Basket</button>
             </li>
         </ItemContainer>

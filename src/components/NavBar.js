@@ -39,7 +39,7 @@ const NavBar = () => {
             </LinkContainer>
             <LinkContainer>
             <li>
-                <Link to="/Basket">User</Link>
+                <Link to="/user">User</Link>
             </li>
             </LinkContainer>
         </ul>
